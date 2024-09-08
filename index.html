@@ -118,13 +118,17 @@
         </form>
     </div>
 
+    <!-- Include config.js script -->
+    <script type="module">
+        import config from './config.js';
+        window.backendUrl = config.backendUrl;
+    </script>
+
     <script>
-        // Function to get environment variable from the window object
         function getBackendUrl() {
-            return window.backendUrl || 'http://localhost:3000'; // Default to localhost for local testing
+            return window.backendUrl || 'http://localhost:3000'; // Default for local testing
         }
 
-        // Set the form action dynamically
         document.addEventListener('DOMContentLoaded', function() {
             const backendUrl = getBackendUrl();
             document.getElementById('contactForm').action = `${backendUrl}/send-email`;
