@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #e0f7fa; /* New background color */
+            background: #e0f7fa;
             margin: 0;
             padding: 0;
             display: flex;
@@ -33,7 +33,7 @@
             color: #333;
             font-size: 48px;
             font-family: 'Pacifico', cursive;
-            background: -webkit-linear-gradient(45deg, #00bcd4, #4caf50); /* Gradient for heading */
+            background: -webkit-linear-gradient(45deg, #00bcd4, #4caf50);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 40px;
@@ -47,7 +47,7 @@
             border: 1px solid rgba(0, 0, 0, 0.2);
             border-radius: 12px;
             font-size: 16px;
-            background-color: #f1f8e9; /* New input background color */
+            background-color: #f1f8e9;
             box-sizing: border-box;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
@@ -61,7 +61,7 @@
         button {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #4caf50, #81c784); /* Gradient for button */
+            background: linear-gradient(135deg, #4caf50, #81c784);
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -92,11 +92,11 @@
 
         button:hover {
             background: linear-gradient(135deg, #ff044b, #006602);
-            transform: scale(1.05); /* Slight scaling effect on hover */
+            transform: scale(1.05);
         }
 
         button:active {
-            transform: translateY(2px); /* More noticeable button press effect */
+            transform: translateY(2px);
         }
 
         .contact-form {
@@ -104,7 +104,6 @@
             z-index: 1;
         }
     </style>
-    <!-- Link to Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -118,19 +117,12 @@
         </form>
     </div>
 
-    <!-- Include config.js script -->
-    <script type="module">
-        import config from './config.js';
-        window.backendUrl = config.backendUrl;
-    </script>
-
     <script>
-        function getBackendUrl() {
-            return window.backendUrl || 'http://localhost:3000'; // Default for local testing
-        }
+        // Set the backend URL directly to the Vercel deployment
+        const backendUrl = 'https://backend-repo-12cn0i7kc-javed-tlps-projects.vercel.app';
 
         document.addEventListener('DOMContentLoaded', function() {
-            const backendUrl = getBackendUrl();
+            // Set the form's action to the backend URL
             document.getElementById('contactForm').action = `${backendUrl}/send-email`;
         });
     </script>
