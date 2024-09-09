@@ -119,11 +119,16 @@
     </div>
 
     <script>
-        // Set the backend URL for form submission
-        const backendUrl = 'https://backend-repo-gamma.vercel.app';
-
         document.addEventListener('DOMContentLoaded', function () {
+            // Determine backend URL based on environment
+            const backendUrl = window.location.hostname === 'localhost'
+                ? 'http://localhost:3000'
+                : 'https://backend-repo-gamma.vercel.app';
+
+            // Set the form action dynamically based on the environment
             document.getElementById('contactForm').action = `${backendUrl}/send-email`;
+            
+            console.log('Form action set to:', document.getElementById('contactForm').action);
         });
     </script>
 </body>
